@@ -23,14 +23,16 @@ public final class MineralisJeiPlugin implements IModPlugin {
 
     @Override
     public void registerItemSubtypes(ISubtypeRegistry registry) {
-        if (ItemsAS.tunedCelestialCrystal == null
-                || registry.hasSubtypeInterpreter(new ItemStack(ItemsAS.tunedCelestialCrystal))) return;
-        registry.registerSubtypeInterpreter(ItemsAS.tunedCelestialCrystal, stack -> {
-            // AS's getter can create missing NBT; inspect a copy to keep JEI's stacks unchanged.
-            IWeakConstellation constellation = ItemTunedCrystalBase.getMainConstellation(stack.copy());
-            return constellation == null ? ISubtypeRegistry.ISubtypeInterpreter.NONE
-                    : constellation.getUnlocalizedName();
-        });
+        for (ItemTunedCrystalBase item : new ItemTunedCrystalBase[]{
+                ItemsAS.tunedCelestialCrystal, ItemsAS.tunedRockCrystal}) {
+            if (item == null || registry.hasSubtypeInterpreter(new ItemStack(item))) continue;
+            registry.registerSubtypeInterpreter(item, stack -> {
+                // AS's getter can create missing NBT; inspect a copy to keep JEI's stacks unchanged.
+                IWeakConstellation constellation = ItemTunedCrystalBase.getMainConstellation(stack.copy());
+                return constellation == null ? ISubtypeRegistry.ISubtypeInterpreter.NONE
+                        : constellation.getUnlocalizedName();
+            });
+        }
     }
 
     @Override
@@ -46,12 +48,16 @@ public final class MineralisJeiPlugin implements IModPlugin {
         if (recipe != null) registry.addRecipes(Collections.singletonList(recipe), MineralisRecipeCategory.UID);
         Item pedestal = Item.getByNameOrId("astralsorcery:blockritualpedestal");
         if (pedestal != null) registry.addRecipeCatalyst(new ItemStack(pedestal), MineralisRecipeCategory.UID);
-        if (ItemsAS.tunedCelestialCrystal != null && Constellations.mineralis != null) {
-            ItemStack crystal = new ItemStack(ItemsAS.tunedCelestialCrystal);
-            CrystalProperties.applyCrystalProperties(crystal, CrystalProperties.getMaxCelestialProperties());
-            ItemTunedCrystalBase.applyMainConstellation(crystal, Constellations.mineralis);
-            registry.addRecipeCatalyst(crystal, MineralisRecipeCategory.UID);
-        }
+        addCrystalCatalyst(registry, ItemsAS.tunedCelestialCrystal, CrystalProperties.getMaxCelestialProperties());
+        addCrystalCatalyst(registry, ItemsAS.tunedRockCrystal, CrystalProperties.getMaxRockProperties());
+    }
+
+    private static void addCrystalCatalyst(IModRegistry registry, ItemTunedCrystalBase item, CrystalProperties properties) {
+        if (item == null || Constellations.mineralis == null) return;
+        ItemStack crystal = new ItemStack(item);
+        CrystalProperties.applyCrystalProperties(crystal, properties);
+        ItemTunedCrystalBase.applyMainConstellation(crystal, Constellations.mineralis);
+        registry.addRecipeCatalyst(crystal, MineralisRecipeCategory.UID);
     }
 
     private static Snapshot readSafely() {

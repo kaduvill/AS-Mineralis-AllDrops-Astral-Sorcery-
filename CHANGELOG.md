@@ -1,3 +1,6 @@
+0.1.1
+- Added Rock Crystal as catalyst
+
 0.1.0
 
 - Read loaded Mineralis weights, blacklist and ore registrations
