@@ -1,0 +1,8 @@
+jei.asmineralisall.category.mineralis=Mineralis Ritual - All Drops
+jei.asmineralisall.page=Page %s / %s
+jei.asmineralisall.mod_name=AS Mineralis - All Drops
+jei.asmineralisall.chance=Chance: %s%%
+jei.asmineralisall.range=Base Range: %s blocks
+jei.asmineralisall.range_box=%sx%sx%s box around Ritual Pedestal
+jei.asmineralisall.range_modifiers=§7Ritual modifiers can change the effective range.
+jei.asmineralisall.no_conversion=No conversion: %s%% per valid attempt.
