@@ -9,7 +9,7 @@ group = project.mod_group
 version = project.mod_version
 
 base {
-    archivesName.set('ASMineralisAllDrops')
+    archivesName.set('ASJeiAllDrops')
 }
 
 java {
@@ -33,7 +33,7 @@ minecraft {
 }
 
 tasks.named('injectTags', InjectTagsTask) {
-    outputClassName.set('com.kaduvill.asmineralisall.Tags')
+    outputClassName.set('com.kaduvill.asjeialldrops.Tags')
 }
 
 repositories {

@@ -1,4 +1,4 @@
-# AS Mineralis - All Drops
+# Astral Sorcery JEI Addon (All Drops)
 
 A tiny Minecraft 1.12.2 client-side addon for Astral Sorcery 1.10.27 and JEI/HEI 4.x.
 

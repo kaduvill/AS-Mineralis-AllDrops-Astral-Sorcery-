@@ -1,7 +1,7 @@
 [
   {
-    "modid": "asmineralisall",
-    "name": "AS Mineralis - All Drops",
+    "modid": "asjeialldrops",
+    "name": "Astral Sorcery JEI Addon (All Drops)",
     "description": "Adds JEI pages for Mineralis, perk ore outputs, Treasure Shrines and Containment Chalice reactions.",
     "version": "${version}",
     "mcversion": "${mcversion}",
