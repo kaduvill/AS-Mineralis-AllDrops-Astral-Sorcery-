@@ -1,6 +1,5 @@
 0.2.0
-- Added Containment Chalice JEI/HEI reactions from the loaded AS registries
-- Added per-outcome chances, fluid requirements and conditional tooltips
+- Added Containment Chalice, Stone Enrichment, Trash to Treasure and Treasure Shrine ore pages
 - Added Rock Crystal as catalyst for Mineralis category
 
 0.1.0

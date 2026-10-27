@@ -159,7 +159,7 @@ public final class ChaliceRecipeWrapper implements IRecipeWrapper {
 
     static String text(String key, Object... values) { return I18n.format("jei.asmineralisall.chalice." + key, values); }
     static String percent(double value) {
-        return Double.isNaN(value) ? text("unknown") : MineralisRecipeCategory.formatPercentage(value) + "%";
+        return Double.isNaN(value) ? text("unknown") : JeiFormats.percentage(value) + "%";
     }
 
     private final class OutputRenderer implements IIngredientRenderer<ItemStack> {

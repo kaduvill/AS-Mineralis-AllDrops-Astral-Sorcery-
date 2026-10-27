@@ -2,7 +2,7 @@
   {
     "modid": "asmineralisall",
     "name": "AS Mineralis - All Drops",
-    "description": "Adds JEI pages for Mineralis ore outputs and Containment Chalice reactions.",
+    "description": "Adds JEI pages for Mineralis, perk ore outputs, Treasure Shrines and Containment Chalice reactions.",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "authorList": ["kaduvill"],

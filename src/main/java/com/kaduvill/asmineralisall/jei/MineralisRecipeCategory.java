@@ -1,11 +1,7 @@
 package com.kaduvill.asmineralisall.jei;
 
 import com.kaduvill.asmineralisall.mineralis.MineralisDrop;
-import java.math.BigDecimal;
-import java.math.MathContext;
-import java.math.RoundingMode;
 import java.util.List;
-import java.util.Locale;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IDrawableAnimated;
@@ -106,12 +102,6 @@ public final class MineralisRecipeCategory implements IRecipeCategory<MineralisR
     }
 
     static String formatPercentage(double probability) {
-        double percentage = probability * 100.0;
-        if (percentage > 0.0 && percentage < 0.1) {
-            return BigDecimal.valueOf(probability).movePointRight(2)
-                    .round(new MathContext(2, RoundingMode.HALF_UP))
-                    .stripTrailingZeros().toPlainString();
-        }
-        return String.format(Locale.ROOT, "%.1f", percentage);
+        return JeiFormats.percentage(probability);
     }
 }
