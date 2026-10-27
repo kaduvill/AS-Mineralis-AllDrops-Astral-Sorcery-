@@ -1,8 +1,8 @@
 package com.kaduvill.asmineralisall.jei;
 
 import com.kaduvill.asmineralisall.ASMineralisAllDrops;
-import com.kaduvill.asmineralisall.loot.AstralMineralisReader;
-import com.kaduvill.asmineralisall.loot.AstralMineralisReader.Snapshot;
+import com.kaduvill.asmineralisall.mineralis.AstralMineralisReader;
+import com.kaduvill.asmineralisall.mineralis.AstralMineralisReader.Snapshot;
 import hellfirepvp.astralsorcery.common.constellation.IWeakConstellation;
 import hellfirepvp.astralsorcery.common.item.crystal.CrystalProperties;
 import hellfirepvp.astralsorcery.common.item.crystal.base.ItemTunedCrystalBase;

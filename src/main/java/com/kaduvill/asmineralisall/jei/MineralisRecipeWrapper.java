@@ -1,7 +1,7 @@
 package com.kaduvill.asmineralisall.jei;
 
-import com.kaduvill.asmineralisall.loot.MineralisDrop;
-import com.kaduvill.asmineralisall.loot.MineralisInput;
+import com.kaduvill.asmineralisall.mineralis.MineralisDrop;
+import com.kaduvill.asmineralisall.mineralis.MineralisInput;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

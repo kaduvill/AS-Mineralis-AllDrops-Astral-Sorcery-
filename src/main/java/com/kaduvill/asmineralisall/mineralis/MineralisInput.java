@@ -1,4 +1,4 @@
-package com.kaduvill.asmineralisall.loot;
+package com.kaduvill.asmineralisall.mineralis;
 
 import java.util.ArrayList;
 import java.util.Collections;

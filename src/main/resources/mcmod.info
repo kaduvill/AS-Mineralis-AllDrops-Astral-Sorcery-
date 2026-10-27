@@ -2,7 +2,7 @@
   {
     "modid": "asmineralisall",
     "name": "AS Mineralis - All Drops",
-    "description": "Adds a JEI page showing the Mineralis ritual's ore outputs with chances.",
+    "description": "Adds JEI pages for Mineralis ore outputs and Containment Chalice reactions.",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "authorList": ["kaduvill"],

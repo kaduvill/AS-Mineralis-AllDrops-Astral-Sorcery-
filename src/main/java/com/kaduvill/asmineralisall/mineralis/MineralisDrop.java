@@ -1,4 +1,4 @@
-package com.kaduvill.asmineralisall.loot;
+package com.kaduvill.asmineralisall.mineralis;
 
 import net.minecraft.item.ItemStack;
 

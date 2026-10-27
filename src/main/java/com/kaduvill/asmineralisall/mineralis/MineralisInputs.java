@@ -1,4 +1,4 @@
-package com.kaduvill.asmineralisall.loot;
+package com.kaduvill.asmineralisall.mineralis;
 
 import com.kaduvill.asmineralisall.ASMineralisAllDrops;
 import java.util.ArrayList;

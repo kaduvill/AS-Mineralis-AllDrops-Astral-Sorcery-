@@ -1,4 +1,4 @@
-package com.kaduvill.asmineralisall.loot;
+package com.kaduvill.asmineralisall.mineralis;
 
 /**
  * Probability calculations for a bounded, retrying weighted selection followed by

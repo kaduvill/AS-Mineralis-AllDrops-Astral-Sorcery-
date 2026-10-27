@@ -1,6 +1,6 @@
 package com.kaduvill.asmineralisall.jei;
 
-import com.kaduvill.asmineralisall.loot.MineralisDrop;
+import com.kaduvill.asmineralisall.mineralis.MineralisDrop;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;

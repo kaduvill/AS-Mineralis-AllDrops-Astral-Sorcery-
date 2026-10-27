@@ -37,6 +37,7 @@ tasks.named('injectTags', InjectTagsTask) {
 }
 
 repositories {
+    mavenCentral()
     exclusiveContent {
         forRepository {
             maven {
@@ -62,6 +63,7 @@ repositories {
 }
 
 dependencies {
+    testImplementation 'junit:junit:4.13.2'
     implementation(rfg.deobf('curse.maven:astral-sorcery-241721:3044416')) {transitive = false}
     implementation(rfg.deobf('curse.maven:baubles-227083:2518667')) {transitive = false}
 
@@ -69,6 +71,13 @@ dependencies {
     /// HEI versions
     implementation(rfg.deobf('maven.modrinth:had-enough-items:4.31.2')) {transitive = false}
     // implementation(rfg.deobf('maven.modrinth:had-enough-items:4.36.0')) {transitive = false }
+}
+
+tasks.named('test', Test) {
+    useJUnit()
+    def testWork = layout.buildDirectory.dir('test-work')
+    workingDir(testWork)
+    doFirst { testWork.get().asFile.mkdirs() }
 }
 
 tasks.withType(JavaCompile).configureEach {

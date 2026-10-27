@@ -1,4 +1,4 @@
-package com.kaduvill.asmineralisall.loot;
+package com.kaduvill.asmineralisall.mineralis;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
