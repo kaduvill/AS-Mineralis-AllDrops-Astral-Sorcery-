@@ -1,5 +1,6 @@
 0.2.0
 - Renamed to Astral Sorcery JEI Addon (All Drops)
+- Added config to disable any category
 - Added Containment Chalice, Stone Enrichment, Trash to Treasure and Treasure Shrine ore pages
 - Added Rock Crystal as catalyst for Mineralis category
 

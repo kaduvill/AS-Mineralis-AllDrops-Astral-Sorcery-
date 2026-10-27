@@ -1,6 +1,7 @@
 package com.kaduvill.asjeialldrops.jei;
 
 import com.kaduvill.asjeialldrops.ASJeiAllDrops;
+import com.kaduvill.asjeialldrops.config.ASJeiAllDropsConfig;
 import com.kaduvill.asjeialldrops.ore.AstralOrePages;
 import com.kaduvill.asjeialldrops.ore.OrePage;
 import java.util.EnumMap;
@@ -25,6 +26,8 @@ public final class OreTablesJeiPlugin implements IModPlugin {
         pages.clear();
         categories.clear();
         preparedReader = null;
+        if (!ASJeiAllDropsConfig.stoneEnrichment && !ASJeiAllDropsConfig.trashToTreasure
+                && !ASJeiAllDropsConfig.treasureShrine) return;
         try {
             preparedReader = new AstralOrePages();
         } catch (ReflectiveOperationException | RuntimeException | LinkageError failure) {
@@ -35,9 +38,18 @@ public final class OreTablesJeiPlugin implements IModPlugin {
             try {
                 OrePage page;
                 switch (kind) {
-                    case ENRICHMENT: page = preparedReader.enrichment(); break;
-                    case TRASH: page = preparedReader.trash(); break;
-                    case SHRINE: page = preparedReader.shrine(); break;
+                    case ENRICHMENT:
+                        if (!ASJeiAllDropsConfig.stoneEnrichment) continue;
+                        page = preparedReader.enrichment();
+                        break;
+                    case TRASH:
+                        if (!ASJeiAllDropsConfig.trashToTreasure) continue;
+                        page = preparedReader.trash();
+                        break;
+                    case SHRINE:
+                        if (!ASJeiAllDropsConfig.treasureShrine) continue;
+                        page = preparedReader.shrine();
+                        break;
                     default: throw new IllegalStateException("Unknown ore mechanic");
                 }
                 if (page == null || page.table.outputs.isEmpty()) continue;
@@ -53,6 +65,7 @@ public final class OreTablesJeiPlugin implements IModPlugin {
 
     @Override public void register(IModRegistry registry) {
         try {
+            if (pages.isEmpty()) return;
             IIngredientRenderer<ItemStack> renderer = registry.getIngredientRegistry().getIngredientRenderer(VanillaTypes.ITEM);
             Item journal = Item.getByNameOrId("astralsorcery:itemjournal");
             for (Map.Entry<OrePage.Kind, OrePage> entry : pages.entrySet()) {

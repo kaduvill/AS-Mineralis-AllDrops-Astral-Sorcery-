@@ -1,6 +1,7 @@
 package com.kaduvill.asjeialldrops.jei;
 
 import com.kaduvill.asjeialldrops.ASJeiAllDrops;
+import com.kaduvill.asjeialldrops.config.ASJeiAllDropsConfig;
 import com.kaduvill.asjeialldrops.chalice.AstralChaliceReader;
 import com.kaduvill.asjeialldrops.chalice.ChaliceRecipes;
 import java.util.ArrayList;
@@ -21,6 +22,9 @@ public final class ChaliceJeiPlugin implements IModPlugin {
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registry) {
+        category = null;
+        recipes = Collections.emptyList();
+        if (!ASJeiAllDropsConfig.containmentChalice) return;
         List<ChaliceRecipes.Recipe> pools = readRecipes();
         int maxOutputs = 0;
         for (ChaliceRecipes.Recipe pool : pools) maxOutputs = Math.max(maxOutputs, pool.outcomes.size());
@@ -34,6 +38,7 @@ public final class ChaliceJeiPlugin implements IModPlugin {
 
     @Override
     public void register(IModRegistry registry) {
+        if (category == null) return;
         category.setRenderers(registry.getIngredientRegistry().getIngredientRenderer(VanillaTypes.FLUID),
                 registry.getIngredientRegistry().getIngredientRenderer(VanillaTypes.ITEM));
         registry.addRecipes(recipes, ChaliceRecipeCategory.UID);

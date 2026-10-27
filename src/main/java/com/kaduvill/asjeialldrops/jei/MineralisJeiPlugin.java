@@ -1,6 +1,7 @@
 package com.kaduvill.asjeialldrops.jei;
 
 import com.kaduvill.asjeialldrops.ASJeiAllDrops;
+import com.kaduvill.asjeialldrops.config.ASJeiAllDropsConfig;
 import com.kaduvill.asjeialldrops.mineralis.AstralMineralisReader;
 import com.kaduvill.asjeialldrops.mineralis.AstralMineralisReader.Snapshot;
 import hellfirepvp.astralsorcery.common.constellation.IWeakConstellation;
@@ -23,6 +24,7 @@ public final class MineralisJeiPlugin implements IModPlugin {
 
     @Override
     public void registerItemSubtypes(ISubtypeRegistry registry) {
+        if (!ASJeiAllDropsConfig.mineralis) return;
         for (ItemTunedCrystalBase item : new ItemTunedCrystalBase[]{
                 ItemsAS.tunedCelestialCrystal, ItemsAS.tunedRockCrystal}) {
             if (item == null || registry.hasSubtypeInterpreter(new ItemStack(item))) continue;
@@ -37,6 +39,8 @@ public final class MineralisJeiPlugin implements IModPlugin {
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registry) {
+        snapshot = null;
+        if (!ASJeiAllDropsConfig.mineralis) return;
         snapshot = readSafely();
         registry.addRecipeCategories(new MineralisRecipeCategory(registry.getJeiHelpers().getGuiHelper(),
                 snapshot.getInputs().size(), snapshot.getDrops().size()));
@@ -44,6 +48,7 @@ public final class MineralisJeiPlugin implements IModPlugin {
 
     @Override
     public void register(IModRegistry registry) {
+        if (snapshot == null) return;
         MineralisRecipeWrapper recipe = wrap(snapshot);
         if (recipe != null) registry.addRecipes(Collections.singletonList(recipe), MineralisRecipeCategory.UID);
         Item pedestal = Item.getByNameOrId("astralsorcery:blockritualpedestal");

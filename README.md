@@ -2,7 +2,7 @@
 
 A tiny Minecraft 1.12.2 client-side addon for Astral Sorcery 1.10.27 and JEI/HEI 4.x.
 
-It adds categories for:
+It adds categories for (Disabled in config):
 - Mineralis ritual
 - Containment Chalice reactions
 - Stone Enrichment
